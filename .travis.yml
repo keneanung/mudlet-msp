@@ -1,0 +1,13 @@
+os: linux
+dist: trusty
+sudo: false
+addons:
+   apt:
+      packages:
+      - luarocks
+install:
+- luarocks install --local moonscript
+- `luarocks path`
+- export PATH="$HOME/bin/:$PATH"
+script:
+- moonc
