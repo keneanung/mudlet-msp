@@ -7,7 +7,7 @@ addons:
       - luarocks
 install:
 - luarocks install --local moonscript
-- `luarocks path`
+- $(luarocks path)
 - export PATH="$HOME/bin/:$PATH"
 script:
 - moonc
