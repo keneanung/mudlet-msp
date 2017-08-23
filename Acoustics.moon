@@ -12,10 +12,9 @@ searchFiles = (where, pattern) ->
   if attributes and attributes.mode == "directory"
     for file in lfs.dir(where) do
       if file\match(pattern)
-        filesFound[#filesFound + 1] = file
+        filesFound[#filesFound + 1] = where .. file
 
   return filesFound
-
 
 getSoundFiles = (completeSoundPath, soundType) ->
   soundPath = completeSoundPath\match("^(.*/)(.*)$") or ""
@@ -23,11 +22,10 @@ getSoundFiles = (completeSoundPath, soundType) ->
 
   soundFilePattern = dosWildcardsToLuaPattern(soundFile)
 
-  return searchFiles(getMudletHomeDir() .. "msp/sounds/" .. soundPath, soundFilePattern)
-
+  return searchFiles(getMudletHomeDir() .. "/msp/sounds/" .. soundPath, soundFilePattern)
 
 class Acoustics
-  new: (completeSoundPath, properties) =>
+  new: (completeSoundPath, properties={}) =>
     @completeSoundPath = completeSoundPath
     
     for argShortName, argValue in pairs properties
@@ -47,7 +45,6 @@ class Acoustics
     playSoundFile(@files[1]) if @files and #@files > 0
 
   @argShortNamesToNames: (shortName) ->
-    print(shortName)
     switch shortName
       when "V"
         "volume"

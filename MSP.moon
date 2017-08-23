@@ -4,9 +4,14 @@ Sound = require "Sound"
 
 MSP_TELNET_OPTION  = 90
 
-playAcoustics = (cls, ...) ->
-  with cls(...)
-    \Play!
+parseProperties = (propertiesString="") ->
+  splitProperties = propertiesString\split(" ")
+
+  properties = {}
+  for prop in *splitProperties
+    {key,value} = prop\split("=")
+    properties[key] = value
+  return properties
 
 class MSP
 
@@ -14,7 +19,9 @@ class MSP
     addSupportedTelnetOption(MSP_TELNET_OPTION)
 
   @SoundTrigger: (completeSoundPath, properties) ->
-    playAcoustics(Sound, completeSoundPath, properties)
+    with Sound(completeSoundPath, parseProperties(properties))
+      \Play!
 
   @MusicTrigger: (completeSoundPath, properties) ->
-    playAcoustics(Music, completeSoundPath, properties)
+    with Music(completeSoundPath, parseProperties(properties))
+      \Play!
