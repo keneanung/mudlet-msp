@@ -8,5 +8,3 @@ class Sound extends Acoustics
         "priority"
       else
         super.argShortNamesToNames(shortName)
-
-Sound("test", { P: "something"})
