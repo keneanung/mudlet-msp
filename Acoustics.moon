@@ -11,7 +11,7 @@ searchFiles = (where, pattern) ->
   attributes = lfs.attributes(where)
   if attributes and attributes.mode == "directory"
     for file in lfs.dir(where) do
-      if file:match(pattern)
+      if file\match(pattern)
         filesFound[#filesFound + 1] = file
 
   return filesFound
