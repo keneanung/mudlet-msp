@@ -35,15 +35,13 @@ class Acoustics
         self[argName] = argValue
       else
         print "MSP: server sent an unknown argument type: " .. argShortName
-
-    @continue = @continue ~= "0" if @continue
     
     @url = @@defaultUrl if not @url and @@defaultUrl
     
     if @completeSoundPath ~= "Off"
       @files = getSoundFiles(@completeSoundPath, @soundType)
     else
-      @@defaulUrl if @url
+      @@defaulUrl = @url if @url
 
   @argShortNamesToNames: (shortName) ->
     print(shortName)
