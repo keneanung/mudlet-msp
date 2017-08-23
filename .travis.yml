@@ -10,4 +10,4 @@ install:
 - $(luarocks path)
 - export PATH="$HOME/.luarocks/bin/:$PATH"
 script:
-- moonc
+- moonc *.moon
