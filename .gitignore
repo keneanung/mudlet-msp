@@ -1,2 +1,3 @@
 # ignore lua files. They are compiled and shouldn't be checked in
 *.lua
+!config.lua
