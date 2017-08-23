@@ -8,6 +8,6 @@ addons:
 install:
 - luarocks install --local moonscript
 - $(luarocks path)
-- export PATH="$HOME/bin/:$PATH"
+- export PATH="$HOME/.luarocks/bin/:$PATH"
 script:
 - moonc
