@@ -5,9 +5,11 @@ addons:
    apt:
       packages:
       - luarocks
+skip_cleanup: true
 install:
 - luarocks install --local moonscript
 - $(luarocks path)
 - export PATH="$HOME/.luarocks/bin/:$PATH"
 script:
-- moonc *.moon
+- for file in *.moon; do moonc -o "template/${file%.moon}.lua" "$file"; done
+- zip msp.mpackage template/*
