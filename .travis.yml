@@ -18,5 +18,7 @@ deploy:
   api_key:
     secure: qOkp1V0no7dOMxRdlTLcRcAvf/1HYr04eBXnboGZi/8MukBzrBCbsq1cP6XMbiVXAIG0SmC8q+7THj9BojSw29VLFJNPcBbxOAlXOFZ5k27/GQ2OsjvngZlM1Gh5M5YQva/gD/Pa/TKwhSJHT3EKD7GnoBkYyZxWizLwejkK4hK5ZlRjrFooLPsEmWgesZPHxtlIU4+7mSNsCvYGUT97zn375zqCWXr+DZB0jKWenykIDCsq0bTLBvmw8r5/QZgIe4nyzVBcSU4K0JqaSpOCTocqwZj2MTtImBZgPx7pq/8btRYXvpVwdljWzeirN4StMq49DkyZDagCaI0PLJi9puEwr8Wm2/oYmNRPbeHrb5UQml6mJvDkGjZNpvO6FxROQ2oMt4Z9iGr5vsMB0EnzgJXe3VtUMeeffyraFiKBLFdxv451StF9nVltD6BDHPEQn8/dD+6FtbwWaqNz2XT+ZP/RxAvMufOBSJAAwjN4YYE4nLk7yu+t6CmYHP3dvB6ybkD/v/vCaYV+t1/0qBApjGCujeeArTBcfou+eZJXPSglRhJ1we9Yuz6PRPHcLdzUCuQMjjsBNXv9fxBy1tDStH3J/+/NdP0V5oNiY1ku3pMp1FPTT2q8p74D4gsaD//YUsW1qCknIt+5/30xS5Km3OVQDovBfMmyx/dU3C/97sE=
   file: "template/msp.mpackage"
+  skip_cleanup: true
   on:
     repo: keneanung/mudlet-msp
+    tags: true
