@@ -1,4 +1,7 @@
 require "lfs"
+MspGlobals = require "MspGlobals"
+
+import MODULE_PATH from MspGlobals
 
 dosWildcardsToLuaPattern = (soundFile) ->
   suffix = soundFile\match("%.(%w+)$")
@@ -22,7 +25,7 @@ getSoundFiles = (completeSoundPath, soundType) ->
 
   soundFilePattern = dosWildcardsToLuaPattern(soundFile)
 
-  return searchFiles(getMudletHomeDir() .. "/msp/sounds/" .. soundPath, soundFilePattern)
+  return searchFiles(MODULE_PATH .. "sounds/" .. soundPath, soundFilePattern)
 
 class Acoustics
   new: (completeSoundPath, properties={}) =>

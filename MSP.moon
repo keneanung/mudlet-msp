@@ -1,8 +1,9 @@
 Acoustics = require "Acoustics"
 Music = require "Music"
 Sound = require "Sound"
+MspGlobals = require "MspGlobals"
 
-MSP_TELNET_OPTION  = 90
+import MSP_TELNET_OPTION from MspGlobals
 
 parseProperties = (propertiesString="") ->
   splitProperties = propertiesString\split(" ")
