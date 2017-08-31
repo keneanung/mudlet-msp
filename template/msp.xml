@@ -19,8 +19,7 @@
             <regexCodePropertyList/>
             <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                 <name>Sound Trigger</name>
-                <script>deleteLine()
-MSP.SoundTrigger(matches[2], matches[3])</script>
+                <script>MSP.SoundTrigger(matches[2], matches[3])</script>
                 <triggerType>0</triggerType>
                 <conditonLineDelta>0</conditonLineDelta>
                 <mStayOpen>0</mStayOpen>
@@ -40,8 +39,7 @@ MSP.SoundTrigger(matches[2], matches[3])</script>
             </Trigger>
             <Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
                 <name>Music Trigger</name>
-                <script>deleteLine()
-MSP.MusicTrigger(matches[2], matches[3])</script>
+                <script>MSP.MusicTrigger(matches[2], matches[3])</script>
                 <triggerType>0</triggerType>
                 <conditonLineDelta>0</conditonLineDelta>
                 <mStayOpen>0</mStayOpen>
@@ -62,7 +60,22 @@ MSP.MusicTrigger(matches[2], matches[3])</script>
         </TriggerGroup>
     </TriggerPackage>
     <TimerPackage/>
-    <AliasPackage/>
+    <AliasPackage>
+        <AliasGroup isActive="yes" isFolder="yes">
+            <name>MSP</name>
+            <script></script>
+            <command></command>
+            <packageName></packageName>
+            <regex></regex>
+            <Alias isActive="yes" isFolder="no">
+                <name>configure hiding of MSP lines</name>
+                <script>MSP.ConfigureLineHiding(matches[2])</script>
+                <command></command>
+                <packageName></packageName>
+                <regex>^MSP hide lines (\w+)$</regex>
+            </Alias>
+        </AliasGroup>
+    </AliasPackage>
     <ActionPackage/>
     <ScriptPackage>
         <Script isActive="yes" isFolder="no">
@@ -83,4 +96,7 @@ MSP.Initialize()</script>
         </Script>
     </ScriptPackage>
     <KeyPackage/>
+    <HelpPackage>
+        <helpURL></helpURL>
+    </HelpPackage>
 </MudletPackage>
