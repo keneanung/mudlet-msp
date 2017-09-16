@@ -31,11 +31,20 @@ class Acoustics
   new: (completeSoundPath, properties={}) =>
     @completeSoundPath = completeSoundPath
     
-    for argShortName, argValue in pairs properties
+    for argShortName, argValue in pairs(properties)
       if argName = @@.argShortNamesToNames(argShortName)
         self[argName] = argValue
       else
         print "MSP: server sent an unknown argument type: " .. argShortName
+
+    if @volume
+      @volume = tonumber(@volume) or 100
+      if @volume < 0
+        @volume = 0
+      elseif @volume > 100
+        @volume = 100
+    else
+      @volume = 100
     
     @url = @@defaultUrl if not @url and @@defaultUrl
     
@@ -45,7 +54,7 @@ class Acoustics
       @@defaulUrl = @url if @url
 
   Play: =>
-    playSoundFile(@files[1]) if @files and #@files > 0
+    playSoundFile(@files[1], @volume) if @files and #@files > 0
 
   @argShortNamesToNames: (shortName) ->
     switch shortName
