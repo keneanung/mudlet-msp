@@ -54,7 +54,7 @@ class Acoustics
       @@defaulUrl = @url if @url
 
   Play: =>
-    playSoundFile(@files[1], @volume) if @files and #@files > 0
+    playSoundFile(@files[math.random #@files], @volume) if @files and #@files > 0
 
   @argShortNamesToNames: (shortName) ->
     switch shortName
