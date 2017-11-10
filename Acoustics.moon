@@ -34,7 +34,7 @@ class Acoustics
     @completeSoundPath = completeSoundPath
     
     for argShortName, argValue in pairs(properties)
-      if argName = @@.argShortNamesToNames(argShortName)
+      if argName = @@.ArgShortNamesToNames argShortName
         self[argName] = argValue
       else
         print "MSP: server sent an unknown argument type: " .. argShortName
@@ -50,7 +50,7 @@ class Acoustics
     
     @url = @@defaultUrl if not @url and @@defaultUrl
     
-    if @completeSoundPath ~= "Off"
+    if @completeSoundPath != "Off"
       @files = getSoundFiles(@completeSoundPath, @soundType)
     else
       @@defaulUrl = @url if @url
@@ -58,7 +58,7 @@ class Acoustics
   Play: =>
     playSoundFile(@files[math.random #@files], @volume) if @files and #@files > 0
 
-  @argShortNamesToNames: (shortName) ->
+  @ArgShortNamesToNames: (shortName) ->
     switch shortName
       when "V"
         "volume"

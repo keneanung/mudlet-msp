@@ -7,9 +7,9 @@ class Music extends Acoustics
 
     @continue = @continue ~= "0" if @continue
 
-  @argShortNamesToNames: (shortName) ->
+  @ArgShortNamesToNames: (shortName) ->
     switch shortName
       when "C"
         "continue"
       else
-        super.argShortNamesToNames(shortName)
+        super.ArgShortNamesToNames shortName

@@ -2,9 +2,9 @@ Acoustics = require "Acoustics"
 
 class Sound extends Acoustics
 
-  @argShortNamesToNames: (shortName) ->
+  @ArgShortNamesToNames: (shortName) ->
     switch shortName
       when "P"
         "priority"
       else
-        super.argShortNamesToNames(shortName)
+        super.ArgShortNamesToNames shortName
