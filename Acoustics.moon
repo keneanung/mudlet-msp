@@ -13,7 +13,7 @@ dosWildcardsToLuaPattern = (soundFile) ->
 
 searchFiles = (where, pattern) ->
   filesFound = {}
-  attributes = lfs.attributes(where)
+  attributes = lfs.attributes(where\ends("/") and where\sub(1, -2) or where)
   if attributes and attributes.mode == "directory"
     for file in lfs.dir(where) do
       if file\match(pattern)
