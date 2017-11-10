@@ -12,7 +12,7 @@ install:
 - export PATH="$HOME/.luarocks/bin/:$PATH"
 script:
 - for file in *.moon; do moonc -o "template/${file%.moon}.lua" "$file"; done
-- zip template/msp.mpackage template/*
+- cd template && zip msp.mpackage *
 deploy:
   provider: releases
   api_key:
