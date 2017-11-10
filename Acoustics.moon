@@ -7,7 +7,9 @@ dosWildcardsToLuaPattern = (soundFile) ->
   suffix = soundFile\match("%.(%w+)$")
   if not suffix and not soundFile\find("%*$")
     soundFile = soundFile .. (soundType == "SOUND" and ".wav" or ".mid")
-  return soundFile\gsub("%.", "%%.")\gsub("%*", ".*")\gsub("%?", ".")
+  for char in *{"^", "$", "(", ")", "%", ".", "[", "]", "+", "-"}
+    soundFile = soundFile\gsub("%"..char, "%%"..(char == "%" and "%%" or char))
+  return soundFile\gsub("%*", ".*")\gsub("%?", ".")
 
 searchFiles = (where, pattern) ->
   filesFound = {}
