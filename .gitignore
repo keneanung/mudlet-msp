@@ -5,3 +5,5 @@
 *.moon~
 *.xml~
 .vscode
+template/
+!template/msp.xml
