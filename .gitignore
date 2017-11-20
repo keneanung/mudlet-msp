@@ -7,3 +7,4 @@
 .vscode
 template/
 !template/msp.xml
+*.code-workspace
